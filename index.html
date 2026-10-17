@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chef Bookings | Book a Private Chef, Coming Soon</title>
+<meta name="description" content="Chef Bookings is a simple way to find and book a private or personal chef for dinners, celebrations, and weekly meals at home. Coming soon. Join the list to hear first.">
+<meta name="theme-color" content="#16130f">
+<meta property="og:title" content="Chef Bookings | Book a Private Chef">
+<meta property="og:description" content="Find and book a private chef for dinners, events, and weekly meals. Coming soon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chefbookings.org/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E%3Cpath d='M20 38a9 9 0 0 1-2-17 10 10 0 0 1 14-7 10 10 0 0 1 14 7 9 9 0 0 1-2 17z' fill='%23d4a24c'/%3E%3Crect x='20' y='40' width='24' height='8' rx='2' fill='%23d4a24c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#16130f;--bg2:#1f1b16;--card:#26211b;--gold:#d4a24c;--gold-2:#f0c873;--cream:#f5ede0;--muted:#b3a794;--line:rgba(245,237,224,.12)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--cream);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1.12}
+  a{color:var(--gold-2)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header{padding:26px 0}
+  header .wrap{display:flex;justify-content:space-between;align-items:center}
+  .logo{display:flex;align-items:center;gap:12px;font-family:"Playfair Display",serif;font-size:1.35rem;color:var(--cream);text-decoration:none;letter-spacing:.01em}
+  .logo svg{width:36px;height:36px}
+  .logo b{color:var(--gold)}
+  .tag{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,162,76,.45);padding:6px 14px;border-radius:999px}
+  .hero{position:relative;padding:70px 0 100px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:720px;height:720px;right:-220px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(212,162,76,.22),transparent 65%)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .kicker{color:var(--gold);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:12px}
+  .kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
+  .hero h1{font-size:clamp(2.7rem,6.2vw,5rem);margin:20px 0 22px}
+  .hero h1 i{color:var(--gold-2);font-weight:500}
+  .hero p.lead{color:var(--muted);font-size:1.15rem;max-width:540px;margin-bottom:34px}
+  form.join{display:flex;gap:10px;max-width:520px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:8px}
+  form.join input{flex:1;min-width:0;background:transparent;border:0;color:var(--cream);font:inherit;padding:12px 14px;outline:none}
+  form.join input::placeholder{color:#857a6a}
+  form.join button{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1a140c;border:0;border-radius:10px;padding:12px 22px;font:600 1rem Inter,sans-serif;cursor:pointer;white-space:nowrap;transition:filter .15s}
+  form.join button:hover{filter:brightness(1.07)}
+  .note{font-size:.85rem;color:#8d8272;margin-top:12px;min-height:1.4em}
+  .note.ok{color:var(--gold-2)}
+  .plate{position:relative;aspect-ratio:1;max-width:420px;justify-self:center;width:100%}
+  .plate .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,#2c261f 0 46%,#f5ede0 46.5% 60%,#e6dccb 60.5% 63%,transparent 63.5%);box-shadow:0 40px 80px rgba(0,0,0,.5)}
+  .plate svg{position:absolute;inset:0;width:100%;height:100%}
+  .section{padding:90px 0;border-top:1px solid var(--line)}
+  .center{text-align:center;max-width:640px;margin:0 auto 54px}
+  .center h2{font-size:clamp(2rem,4vw,2.8rem);margin:14px 0}
+  .center p{color:var(--muted)}
+  .center .kicker{justify-content:center}
+  .center .kicker::after{content:"";width:34px;height:1px;background:var(--gold)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px 28px;position:relative}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:"Playfair Display",serif;font-size:2.6rem;color:var(--gold);opacity:.9;display:block;margin-bottom:10px}
+  .step h3{font-size:1.35rem;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.97rem}
+  .occasions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .chip{border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:11px 20px;font-size:.95rem;color:var(--cream)}
+  .chip span{color:var(--gold);margin-right:8px}
+  .chefs{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:linear-gradient(135deg,#2a231a,#1c1813);border:1px solid rgba(212,162,76,.25);border-radius:28px;padding:54px}
+  .chefs h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin:12px 0}
+  .chefs p{color:var(--muted)}
+  .chefs ul{list-style:none;display:grid;gap:14px}
+  .chefs li{display:flex;gap:12px;align-items:flex-start}
+  .chefs li::before{content:"✦";color:var(--gold);flex:0 0 auto}
+  footer{border-top:1px solid var(--line);padding:36px 0;color:#8d8272;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media (max-width:900px){
+    .hero-grid,.chefs{grid-template-columns:1fr}
+    .plate{max-width:300px;order:-1}
+    .steps{grid-template-columns:1fr}
+    .chefs{padding:36px 26px}
+  }
+  @media (max-width:520px){
+    .tag{display:none}
+    form.join{flex-direction:column}
+    form.join button{width:100%}
+    .hero{padding:30px 0 70px}
+    .section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Chef Bookings home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 38a9 9 0 0 1-2-17 10 10 0 0 1 14-7 10 10 0 0 1 14 7 9 9 0 0 1-2 17z" fill="#d4a24c"/><rect x="20" y="40" width="24" height="8" rx="2" fill="#d4a24c"/></svg>
+      Chef<b>Bookings</b>
+    </a>
+    <span class="tag">Coming soon</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">Private chefs, made simple</span>
+        <h1>A great chef, <i>at your table.</i></h1>
+        <p class="lead">Chef Bookings is a new, easier way to find and book a private or personal chef for an intimate dinner, a celebration, or meals for the week ahead, all in your own home.</p>
+        <form class="join" id="join" novalidate>
+          <label for="email" class="sr" style="position:absolute;left:-9999px">Email address</label>
+          <input id="email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+          <button type="submit">Join the list</button>
+        </form>
+        <p class="note" id="note">Be the first to know when bookings open.</p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="ring"></div>
+        <svg viewBox="0 0 400 400">
+          <g transform="translate(200 200)">
+            <path d="M-150 -150 L-150 -40 M-162 -150 L-162 -90 Q-162 -70 -150 -70 Q-138 -70 -138 -90 L-138 -150" stroke="#b3a794" stroke-width="5" fill="none" stroke-linecap="round" transform="translate(-30 60)"/>
+            <path d="M175 -100 Q195 -40 175 20 L175 120" stroke="#b3a794" stroke-width="5" fill="none" stroke-linecap="round" transform="translate(5 -10)"/>
+            <circle r="56" fill="#d4a24c" opacity=".92"/>
+            <circle r="34" fill="#f0c873"/>
+            <circle cx="-28" cy="-22" r="9" fill="#6f8f4e"/>
+            <circle cx="30" cy="20" r="7" fill="#6f8f4e"/>
+            <circle cx="22" cy="-30" r="5" fill="#a8452f"/>
+            <circle cx="-26" cy="28" r="6" fill="#a8452f"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="center">
+        <span class="kicker">How it will work</span>
+        <h2>Three simple steps</h2>
+        <p>We're building a booking experience that takes the guesswork out of hiring a chef.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Tell us the occasion</h3><p>Share the date, the number of guests, your tastes, and any dietary needs.</p></div>
+        <div class="step"><h3>Choose your chef</h3><p>Browse chef profiles and sample menus, then pick the one that fits your event.</p></div>
+        <div class="step"><h3>Sit back &amp; enjoy</h3><p>Your chef shops, cooks, serves, and cleans up, so you can enjoy your guests.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="center">
+        <span class="kicker">Perfect for</span>
+        <h2>Every kind of gathering</h2>
+      </div>
+      <div class="occasions">
+        <span class="chip"><span>✦</span>Dinner parties</span>
+        <span class="chip"><span>✦</span>Date nights</span>
+        <span class="chip"><span>✦</span>Birthdays &amp; anniversaries</span>
+        <span class="chip"><span>✦</span>Holiday meals</span>
+        <span class="chip"><span>✦</span>Weekly meal prep</span>
+        <span class="chip"><span>✦</span>Vacation rentals</span>
+        <span class="chip"><span>✦</span>Cooking lessons</span>
+        <span class="chip"><span>✦</span>Small corporate events</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="chefs">
+        <div>
+          <span class="kicker">For chefs</span>
+          <h2>Are you a private chef?</h2>
+          <p>We're looking for talented chefs to be part of Chef Bookings from day one. Join the list and we'll reach out as we open up chef sign-ups.</p>
+        </div>
+        <ul>
+          <li>Showcase your style, specialties, and sample menus</li>
+          <li>Get booking requests from clients near you</li>
+          <li>Set your own availability and services</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="y">2026</span> Chef Bookings · chefbookings.org</span>
+    <span>Launching soon</span>
+  </div>
+</footer>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // NOTE: no backend is connected yet. Hook this form to a form service (e.g. Formspree, Google Forms) before launch to actually collect sign-ups.
+  document.getElementById('join').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = document.getElementById('email'), note = document.getElementById('note');
+    if (!input.value || !input.checkValidity()) { note.textContent = 'Please enter a valid email address.'; note.className = 'note'; input.focus(); return; }
+    note.textContent = 'Thanks for your interest! Our waitlist is opening soon. Please check back shortly.';
+    note.className = 'note ok';
+  });
+</script>
+</body>
+</html>
