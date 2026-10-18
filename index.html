@@ -89,7 +89,7 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 38a9 9 0 0 1-2-17 10 10 0 0 1 14-7 10 10 0 0 1 14 7 9 9 0 0 1-2 17z" fill="#d4a24c"/><rect x="20" y="40" width="24" height="8" rx="2" fill="#d4a24c"/></svg>
       Chef<b>Bookings</b>
     </a>
-    <span class="tag">Coming soon</span>
+    <nav style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><a href="/chefs/" style="color:var(--cream);text-decoration:none;font-size:.95rem">Find a chef</a><a href="/chefs/#/account" class="tag" style="text-decoration:none">Chefs: join</a></nav>
   </div>
 </header>
 
@@ -106,6 +106,7 @@
           <button type="submit">Join the list</button>
         </form>
         <p class="note" id="note">Be the first to know when bookings open.</p>
+        <p style="margin-top:18px"><a href="/chefs/" style="font-weight:600">Browse our chefs →</a></p>
       </div>
       <div class="plate" aria-hidden="true">
         <div class="ring"></div>
@@ -165,7 +166,8 @@
         <div>
           <span class="kicker">For chefs</span>
           <h2>Are you a private chef?</h2>
-          <p>We're looking for talented chefs to be part of Chef Bookings from day one. Join the list and we'll reach out as we open up chef sign-ups.</p>
+          <p>We're looking for talented chefs to be part of Chef Bookings from day one. Create your free profile, add your portfolio, and link your Square booking page.</p>
+          <p style="margin-top:18px"><a href="/chefs/#/account" style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1a140c;border-radius:10px;padding:12px 22px;font-weight:600;text-decoration:none">Create your chef profile</a></p>
         </div>
         <ul>
           <li>Showcase your style, specialties, and sample menus</li>
@@ -183,15 +185,20 @@
     <span>Launching soon</span>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/config.js"></script>
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  // NOTE: no backend is connected yet. Hook this form to a form service (e.g. Formspree, Google Forms) before launch to actually collect sign-ups.
-  document.getElementById('join').addEventListener('submit', function (e) {
+  // Waitlist sign-ups are saved to Supabase (table site_waitlist, insert-only for the public).
+  document.getElementById('join').addEventListener('submit', async function (e) {
     e.preventDefault();
     var input = document.getElementById('email'), note = document.getElementById('note');
     if (!input.value || !input.checkValidity()) { note.textContent = 'Please enter a valid email address.'; note.className = 'note'; input.focus(); return; }
-    note.textContent = 'Thanks for your interest! Our waitlist is opening soon. Please check back shortly.';
-    note.className = 'note ok';
+    note.textContent = 'Saving…'; note.className = 'note';
+    var r = window.sb ? await window.sb.from('site_waitlist').insert({ site: 'chefbookings', email: input.value.trim().toLowerCase(), role: 'guest' }) : { error: { message: 'offline' } };
+    if (r.error && r.error.code !== '23505') { note.textContent = 'Sorry, something went wrong. Please try again.'; return; }
+    note.textContent = "Thanks! You're on the list. We'll email you when bookings open.";
+    note.className = 'note ok'; input.value = '';
   });
 </script>
 </body>

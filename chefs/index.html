@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find a Private Chef | Chef Bookings</title>
+<meta name="description" content="Browse private and personal chefs, see their work and reviews, and book through their Square booking page.">
+<meta name="theme-color" content="#16130f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E%3Cpath d='M20 38a9 9 0 0 1-2-17 10 10 0 0 1 14-7 10 10 0 0 1 14 7 9 9 0 0 1-2 17z' fill='%23d4a24c'/%3E%3Crect x='20' y='40' width='24' height='8' rx='2' fill='%23d4a24c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#16130f;--bg2:#1f1b16;--card:#26211b;--gold:#d4a24c;--gold-2:#f0c873;--cream:#f5ede0;--muted:#b3a794;--line:rgba(245,237,224,.12);--red:#e07a5f;--green:#8fbf6a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--cream);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.15}
+a{color:var(--gold-2)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{padding:20px 0;border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",serif;font-size:1.3rem;color:var(--cream);text-decoration:none}
+.logo svg{width:32px;height:32px}.logo b{color:var(--gold)}
+nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav a{color:var(--cream);text-decoration:none;padding:8px 12px;border-radius:10px;font-size:.93rem}
+nav a:hover,nav a.on{background:var(--bg2);color:var(--gold-2)}
+main{padding:36px 0 80px;min-height:60vh}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1a140c;border:0;border-radius:10px;padding:11px 18px;font:600 .95rem Inter,sans-serif;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+.btn.sm{padding:7px 12px;font-size:.85rem}
+.btn.red{background:var(--red);color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+input,textarea,select{width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--cream);font:inherit;padding:11px 13px;border-radius:10px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+label{display:block;font-size:.85rem;color:var(--muted);margin:14px 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.chef{display:flex;flex-direction:column;text-decoration:none;color:inherit;overflow:hidden;padding:0}
+.chef .ph{aspect-ratio:4/3;background:#2c261f center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display";font-size:2.6rem;color:var(--gold)}
+.chef .bd{padding:16px 18px 18px}
+.chef h3{font-size:1.25rem;margin-bottom:4px}
+.muted{color:var(--muted)}.small{font-size:.86rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:.75rem;border:1px solid rgba(212,162,76,.4);color:var(--gold-2);padding:3px 10px;border-radius:999px}
+.stars{color:var(--gold-2);letter-spacing:1px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 24px}
+.toolbar input{flex:1;min-width:200px}.toolbar select{width:auto;min-width:180px}
+.hero2 h1{font-size:clamp(2rem,4.5vw,3rem)}
+.profile{display:grid;grid-template-columns:320px 1fr;gap:32px}
+.profile .ph{aspect-ratio:1;border-radius:18px;background:#2c261f center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display";font-size:4rem;color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:12px}
+.gallery figure{background:var(--bg2);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.gallery img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.gallery figcaption{font-size:.8rem;color:var(--muted);padding:6px 9px}
+.review{border-top:1px solid var(--line);padding:14px 0}
+.pill{display:inline-block;font-size:.75rem;padding:3px 10px;border-radius:999px;background:var(--bg2);border:1px solid var(--line)}
+.pill.pending{color:var(--gold-2)}.pill.approved{color:var(--green)}.pill.rejected{color:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.msg{margin-top:12px;font-size:.9rem;min-height:1.3em}.msg.err{color:var(--red)}.msg.ok{color:var(--green)}
+.starpick button{background:none;border:0;font-size:1.6rem;color:#5b5243;cursor:pointer}.starpick button.on{color:var(--gold-2)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.sq{background:#fff;color:#111}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#8d8272;font-size:.86rem}
+@media(max-width:820px){.profile,.two{grid-template-columns:1fr}.profile .ph{max-width:280px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="/" class="logo"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 38a9 9 0 0 1-2-17 10 10 0 0 1 14-7 10 10 0 0 1 14 7 9 9 0 0 1-2 17z" fill="#d4a24c"/><rect x="20" y="40" width="24" height="8" rx="2" fill="#d4a24c"/></svg>Chef<b>Bookings</b></a>
+  <nav id="nav"></nav>
+</div></header>
+<main><div class="wrap" id="app"><p class="muted">Loading…</p></div></main>
+<footer><div class="wrap">&copy; <span id="y"></span> Chef Bookings · chefbookings.org · Bookings and payments are handled securely by each chef's Square booking page.</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/config.js"></script>
+<script src="/chefs/app.js"></script>
+</body>
+</html>
